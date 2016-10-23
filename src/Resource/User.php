@@ -1,9 +1,9 @@
 <?php
 
-namespace HarvestApi\Traits;
+namespace Johannez\Harvest\Resource;
 
 
-Trait User
+class User
 {
     public function whoAmI()
     {

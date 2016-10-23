@@ -1,9 +1,9 @@
 <?php
 
-namespace HarvestApi\Traits;
+namespace Johannez\Harvest\Resource;
 
 
-Trait Client
+class Client
 {
     public function getClientById()
     {

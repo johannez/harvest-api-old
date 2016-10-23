@@ -1,18 +1,11 @@
 <?php
 
-namespace HarvestApi;
+namespace Johannez\Harvest;
 
 use GuzzleHttp\Client as GuzzleClient;
-use HarvestApi\Traits\User;
-use HarvestApi\Traits\Timesheet;
-use HarvestApi\Traits\Project;
-use HarvestApi\Traits\Client;
 
-
-class Harvest
+class Connection
 {
-    use User, Timesheet, Project, Client;
-
     protected $client = null;
     protected $account;
     protected $username;
@@ -28,6 +21,13 @@ class Harvest
     {
         $this->username = $username;
         $this->password = $password;
+    }
+
+    public function __call($name, $arguments)
+    {
+        // Note: value of $name is case sensitive.
+        echo "Calling object method '$name' "
+            . implode(', ', $arguments). "\n";
     }
 
     protected function getClient()

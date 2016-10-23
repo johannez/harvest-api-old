@@ -1,9 +1,9 @@
 <?php
 
-namespace HarvestApi\Traits;
+namespace Johannez\Harvest\Resource;
 
 
-Trait Project
+class Project
 {
     public function getProjectById()
     {

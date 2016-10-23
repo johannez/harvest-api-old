@@ -1,17 +1,22 @@
 {
-  "name": "johannez/harvestapi",
-  "description": "Interact with the Harvest API v1",
-  "license": "MIT",
-  "type": "library",
-  "homepage": "https://github.com/johannez/harvestapi",
-  "authors": [
+    "name": "johannez/harvestapi",
+    "description": "Interact with the Harvest API v1",
+    "license": "MIT",
+    "type": "library",
+    "homepage": "https://github.com/johannez/harvestapi",
+    "authors": [
     {
-      "name": "Johannes",
-      "email": "mail@johannez.com"
+        "name": "Johannes",
+        "email": "mail@johannez.com"
     }
-  ],
-  "require": {
-    "php": ">=5.4.0",
-    "guzzlehttp/guzzle": "6.*"
-  }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "guzzlehttp/guzzle": "6.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Johannez\\HarvestApi": "src/"
+        }
+    },
 }

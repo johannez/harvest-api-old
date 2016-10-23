@@ -1,6 +1,6 @@
 <?php
 
-namespace Johannez\HarvestApi;
+namespace Johannez\HarvestApi\Traits;
 
 
 Trait Project

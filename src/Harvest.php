@@ -1,17 +1,17 @@
 <?php
 
-namespace Johannez\HarvestApi;
+namespace HarvestApi;
 
-use GuzzleHttp\Client;
-use Johannez\HarvestApi\User;
-use Johannez\HarvestApi\Timesheet;
-use Johannez\HarvestApi\Project;
-use Johannez\HarvestApi\Client as HarvestClient;
+use GuzzleHttp\Client as GuzzleClient;
+use HarvestApi\Traits\User;
+use HarvestApi\Traits\Timesheet;
+use HarvestApi\Traits\Project;
+use HarvestApi\Traits\Client;
 
 
 class Harvest
 {
-    use User, Timesheet, Project, HarvestClient;
+    use User, Timesheet, Project, Client;
 
     protected $client = null;
     protected $account;
@@ -33,7 +33,7 @@ class Harvest
     protected function getClient()
     {
         if (is_null($this->client)) {
-            $this->client = new Client([
+            $this->client = new GuzzleClient([
                 // Base URI is used with relative requests
                 'base_uri' => 'https://' . $this->account . '.harvestapp.com',
                 // You can set any number of default request options.

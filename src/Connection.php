@@ -36,7 +36,7 @@ class Connection
 
         if (class_exists($class_name)) {
             if (!isset($resources[$name])) {
-                $resources[$name] = $class_name($this);
+                $resources[$name] = new $class_name($this);
             }
             return $resources[$name];
         }

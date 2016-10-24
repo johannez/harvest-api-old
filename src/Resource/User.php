@@ -3,12 +3,12 @@
 namespace Johannez\Harvest\Resource;
 
 
-class User
+class User extends BaseResource
 {
     public function whoAmI()
     {
         $uri = 'account/who_am_i';
-        return $this->makeRequest('get', $uri);
+        return $this->connection->makeRequest('get', $uri);
     }
 
 

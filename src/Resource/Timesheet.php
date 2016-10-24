@@ -3,7 +3,7 @@
 namespace Johannez\Harvest\Resource;
 
 
-class Timesheet
+class Timesheet extends BaseResource
 {
     /**
      * Get daily entries.
@@ -17,7 +17,7 @@ class Timesheet
     {
         $uri = $slim ? 'daily?slim=1' : 'daily';
 
-        return $this->makeRequest('get', $uri);
+        return $this->connection->makeRequest('get', $uri);
     }
 
     /**
@@ -47,7 +47,7 @@ class Timesheet
             $uri .= '?' . implode('&', $attributes);
         }
 
-        return $this->makeRequest('get', $uri);
+        return $this->connection->makeRequest('get', $uri);
     }
 
 
@@ -63,7 +63,7 @@ class Timesheet
     {
         $uri = 'daily/show/' . $id;
 
-        return $this->makeRequest('get', $uri);
+        return $this->connection->makeRequest('get', $uri);
     }
 
     /**
@@ -77,7 +77,7 @@ class Timesheet
     public function create($entry)
     {
         $uri = 'daily/add';
-        return $this->makeRequest('post', $uri, $entry);
+        return $this->connection->makeRequest('post', $uri, $entry);
     }
 
     /**
@@ -92,7 +92,7 @@ class Timesheet
     public function update($id, $entry)
     {
         $uri = 'daily/update/' . $id;
-        return $this->makeRequest('put', $uri, $entry);
+        return $this->connection->makeRequest('put', $uri, $entry);
     }
 
 
@@ -107,7 +107,7 @@ class Timesheet
     public function delete($id)
     {
         $uri = 'daily/delete/' . $id;
-        return $this->makeRequest('delete', $uri);
+        return $this->connection->makeRequest('delete', $uri);
     }
 
 }

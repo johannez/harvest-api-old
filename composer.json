@@ -1,9 +1,9 @@
 {
-    "name": "johannez/harvestapi",
+    "name": "johannez/harvest-api",
     "description": "Interact with the Harvest API v1",
     "license": "MIT",
     "type": "library",
-    "homepage": "https://github.com/johannez/harvestapi",
+    "homepage": "https://github.com/johannez/harvest-api",
     "authors": [
     {
         "name": "Johannes",

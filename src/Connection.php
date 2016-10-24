@@ -6,10 +6,17 @@ use GuzzleHttp\Client as GuzzleClient;
 
 class Connection
 {
-    protected $client = null;
+    protected $client;
     protected $account;
     protected $username;
     protected $password;
+    protected $resources;
+
+    public function __construct()
+    {
+        $this->client = null;
+        $this->resources = [];
+    }
 
     public function setAccount($account)
     {
@@ -25,9 +32,17 @@ class Connection
 
     public function __call($name, $arguments)
     {
-        // Note: value of $name is case sensitive.
-        echo "Calling object method '$name' "
-            . implode(', ', $arguments). "\n";
+        $class_name = 'Johannez\\Harvest\\Resource\\' . ucfirst($name);
+
+        if (class_exists($class_name)) {
+            if (!isset($resources[$name])) {
+                $resources[$name] = $class_name($this);
+            }
+            return $resources[$name];
+        }
+        else {
+            throw new \Exception("Invalid reosource type given.");
+        }
     }
 
     protected function getClient()
@@ -48,7 +63,7 @@ class Connection
         return $this->client;
     }
 
-    protected function makeRequest($type, $uri, $data = null)
+    public function makeRequest($type, $uri, $data = null)
     {
         $client = $this->getClient();
         $response = null;

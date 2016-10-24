@@ -13,7 +13,7 @@ class Timesheet
      *
      * @see http://help.getharvest.com/api/timesheets-api/timesheets/retrieving-time-entries/#retrieve-entries-for-the-current-day
      */
-    public function getTimesheetsDaily($slim = true)
+    public function getDaily($slim = true)
     {
         $uri = $slim ? 'daily?slim=1' : 'daily';
 
@@ -29,7 +29,7 @@ class Timesheet
      *
      * @see http://help.getharvest.com/api/timesheets-api/timesheets/retrieving-time-entries/#retrieve-entries-for-a-specific-date
      */
-    public function getTimesheetsByDate($dayOfYear, $year, $user_id = null, $slim = true) {
+    public function getByDate($dayOfYear, $year, $user_id = null, $slim = true) {
 
         $uri = 'daily/' . $dayOfYear . '/' . $year;
 
@@ -59,7 +59,7 @@ class Timesheet
      *
      * @see http://help.getharvest.com/api/timesheets-api/timesheets/retrieving-time-entries/#retrieving-a-single-entry
      */
-    public function getTimesheetsById($id)
+    public function getById($id)
     {
         $uri = 'daily/show/' . $id;
 
@@ -74,7 +74,7 @@ class Timesheet
      *
      * @see http://help.getharvest.com/api/timesheets-api/timesheets/adding-updating-time/#creating-an-entry
      */
-    public function createTimesheet($entry)
+    public function create($entry)
     {
         $uri = 'daily/add';
         return $this->makeRequest('post', $uri, $entry);
@@ -89,7 +89,7 @@ class Timesheet
      *
      * @see http://help.getharvest.com/api/timesheets-api/timesheets/adding-updating-time/#updating-an-entry
      */
-    public function updateTimesheet($id, $entry)
+    public function update($id, $entry)
     {
         $uri = 'daily/update/' . $id;
         return $this->makeRequest('put', $uri, $entry);
@@ -104,7 +104,7 @@ class Timesheet
      *
      * @see http://help.getharvest.com/api/timesheets-api/timesheets/adding-updating-time/#deleting-an-entry
      */
-    public function deleteTimesheet($id)
+    public function delete($id)
     {
         $uri = 'daily/delete/' . $id;
         return $this->makeRequest('delete', $uri);

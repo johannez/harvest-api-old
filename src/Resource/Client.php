@@ -3,35 +3,35 @@
 namespace Johannez\Harvest\Resource;
 
 
-class Client
+class Client extends BaseResource
 {
-    public function getClientById()
+    public function getById()
     {
 
     }
 
-    public function getClients($filters = [])
+    public function getAll($filters = [])
     {
         $uri = 'clients';
 
         if ($filters) {
             $uri .= '?' . implode('&', $filters);
         }
-        return $this->makeRequest('get', $uri);
+        return $this->connection->makeRequest('get', $uri);
     }
 
-    public function createClient()
+    public function create()
     {
 
     }
 
-    public function updateClient() {
+    public function update() {
 
     }
 
-    public function deleteClient() {
+    public function delete() {
 
     }
 
-    public function setClientActive($active) {}
+    public function setActive($active) {}
 }

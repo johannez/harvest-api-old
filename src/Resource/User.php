@@ -7,18 +7,16 @@ class User
 {
     public function whoAmI()
     {
-        $client = $this->getClient();
-        $response = $client->get('account/who_am_i');
-        return $this->getData($response);
+        $uri = 'account/who_am_i';
+        return $this->makeRequest('get', $uri);
     }
 
 
-    public function getUsers($filters) {}
-    public function getUser($id) {}
-    public function createUser() {}
-    public function updateUser($id) {}
-    public function deleteUser($id) {}
-    public function toggleUser($id) {}
+    public function getAll($filters) {}
+    public function getById($id) {}
+    public function create() {}
+    public function update($id) {}
+    public function delete($id) {}
+    public function toggle($id) {}
 
-    // User assignments....
 }

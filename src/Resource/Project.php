@@ -3,35 +3,35 @@
 namespace Johannez\Harvest\Resource;
 
 
-class Project
+class Project extends BaseResource
 {
-    public function getProjectById()
+    public function getById()
     {
 
     }
 
-    public function getProjects($filters = [])
+    public function getAll($filters = [])
     {
         $uri = 'projects';
 
         if ($filters) {
             $uri .= '?' . implode('&', $filters);
         }
-        return $this->makeRequest('get', $uri);
+        return $this->connection->makeRequest('get', $uri);
     }
 
-    public function createProject()
+    public function create()
     {
 
     }
 
-    public function updateProject() {
+    public function update() {
 
     }
 
-    public function deleteProject() {
+    public function delete() {
 
     }
 
-    public function setProjectActive($active) {}
+    public function setActive($active) {}
 }
